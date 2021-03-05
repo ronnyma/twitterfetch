@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  tweetfetch:
+    image: 'ronnyma/tweetfetch:alpha'
+    depends_on:
+      - mongodb
+    networks:
+      - tweet
+
+  mongodb:
+    image: 'mongo:3.4.1'
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongodbdata:/data/db
+    networks:
+      - tweet
+
+networks:
+  tweet:
+    driver: bridge
+
+volumes:
+  mongodbdata:
+    driver: local
