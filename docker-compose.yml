@@ -13,7 +13,7 @@ services:
     ports:
       - '27017:27017'
     volumes:
-      - mongodbdata:/data/db
+      - /home/ronnyma/mongo:/data/db
     networks:
       - tweet
 
@@ -21,6 +21,3 @@ networks:
   tweet:
     driver: bridge
 
-volumes:
-  mongodbdata:
-    driver: local
