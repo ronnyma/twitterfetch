@@ -22,7 +22,7 @@ def get_tweet(api):
                        tweet_mode="extended",
                        q=search_words,
                        lang="no",
-                       since=date_since).items(5)
+                       since=date_since).items(5000)
     db = p.init()
     it = 0
     for t in tweets:
