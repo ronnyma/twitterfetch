@@ -3,6 +3,11 @@ version: '3'
 services:
   tweetfetch:
     image: 'ronnyma/tweetfetch:latest'
+    secrets:
+      - consumer_key
+      - consumer_secret
+      - access_token
+      - access_token_secret
     depends_on:
       - mongodb
     networks:
@@ -20,4 +25,12 @@ services:
 networks:
   tweet:
     driver: bridge
-
+secrets:
+  consumer_key:
+    file: /tmp/ck
+  consumer_secret:
+    file: /tmp/cs
+  access_token:
+    file: /tmp/at
+  access_token_secret:
+    file: /tmp/ats

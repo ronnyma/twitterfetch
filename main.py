@@ -1,15 +1,16 @@
 #!/usr/bin/env python
 
 from datetime import date
+from get_docker_secret import get_docker_secret
 
 import tweepy as tw
 
 from persistence import *
 
-consumer_key = 'gCaaWlM7VvKNJOjkZbubTMTST'
-consumer_secret = 'nB4syMYO7WpyXcFkXjfgbT9ePHPm5O3E1Go5RHO8X1paiTJ4P8'
-access_token = '4287816021-jQxCWgqXpl3PuueFFMpTqEQ3fUt2oUSQwmEqBRz'
-access_token_secret = 'wblNZe49Rwh6v78TgqLv0Il5V1bTdJq0Zj74JUt0BD2UV'
+consumer_key = get_docker_secret('consumer_key', default=None)
+consumer_secret = get_docker_secret('consumer_secret', default=None)
+access_token = get_docker_secret('access_token', default=None)
+access_token_secret = get_docker_secret('access_token_secret', default=None)
 
 
 def init():
