@@ -1,15 +1,15 @@
 from pymongo import MongoClient
 
-def init():
-    client = MongoClient('mongodb', 27017)
-    db = client['pk']
-    coll = db['tweets']
 
-    return coll
+class Persistence:
 
+    def __init__(self):
+        self.client = MongoClient('localhost', 27017)
+        db = self.client['pk']
+        self.coll = db['tweets']
 
-def insert(coll, doc):
-    coll.insert_one(doc)
+    def insert(self, doc):
+        self.coll.insert_one(doc)
 
-
-
+    def close(self):
+        self.client.close()

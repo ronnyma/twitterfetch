@@ -4,7 +4,7 @@ from datetime import date
 
 import tweepy as tw
 
-import persistence as p
+from persistence import *
 
 consumer_key = 'gCaaWlM7VvKNJOjkZbubTMTST'
 consumer_secret = 'nB4syMYO7WpyXcFkXjfgbT9ePHPm5O3E1Go5RHO8X1paiTJ4P8'
@@ -23,7 +23,8 @@ def init():
 def get_tweet(api):
     search_words = "#dax18"
     date_since = date.today()
-    db = p.init()
+
+    init = Persistence()
     it = 0
 
     tweets = tw.Cursor(api.search,
@@ -33,11 +34,11 @@ def get_tweet(api):
                        since=date_since).items(5000)
 
     for t in tweets:
-        p.insert(db, {'tweet': t._json, 'fulltext': t.full_text})
+        init.insert({'tweet': t._json, 'fulltext': t.full_text})
         it = it + 1
 
     print(f'{date_since}: Fetched {it} tweets.')
-    db.close()
+    init.close()
 
 
 if __name__ == '__main__':
