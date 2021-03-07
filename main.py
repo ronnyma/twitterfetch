@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from datetime import date
 
 import tweepy as tw
