@@ -31,7 +31,9 @@ def get_tweet(api):
         p.insert(db, {'tweet': t._json, 'fulltext': t.full_text})
         it = it + 1
 
-    print(it)
+    f = open("status", "w+")
+    f.write(f'Fetched {it} tweets.')
+    f.close()
 
 
 # Press the green button in the gutter to run the script.
