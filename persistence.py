@@ -4,7 +4,7 @@ from pymongo import MongoClient
 class Persistence:
 
     def __init__(self):
-        self.client = MongoClient('localhost', 27017)
+        self.client = MongoClient('mongodb', 27017)
         db = self.client['pk']
         self.coll = db['tweets']
 
