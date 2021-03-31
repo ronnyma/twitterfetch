@@ -18,7 +18,7 @@ services:
     ports:
       - '27017:27017'
     volumes:
-      - /home/ronnyma/mongo:/data/db
+      - /var/data/mongo:/data/db
     networks:
       - tweet
 
