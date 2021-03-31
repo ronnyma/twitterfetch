@@ -27,10 +27,10 @@ networks:
     driver: bridge
 secrets:
   consumer_key:
-    file: /tmp/ck
+    file: /var/secrets/ck
   consumer_secret:
-    file: /tmp/cs
+    file: /var/secrets/cs
   access_token:
-    file: /tmp/at
+    file: /var/secrets/at
   access_token_secret:
-    file: /tmp/ats
+    file: /var/secrets/ats
