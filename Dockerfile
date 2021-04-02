@@ -9,4 +9,4 @@ RUN pip install --no-cache-dir -r ./app/requirements.txt && chmod +x ./app/main.
 
 ENV TZ Europe/Oslo
 
-CMD cron && tail -f /var/log/cron.log
+CMD ["cron", "-f", "-l", "2"]
