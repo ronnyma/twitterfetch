@@ -22,7 +22,7 @@ def init():
 
 
 def get_tweet(api):
-    search_words = "#dax18"
+    search_words = "#dax18 OR #debatten OR #dagsrevyen"
     date_since = date.today()
 
     init = Persistence()
